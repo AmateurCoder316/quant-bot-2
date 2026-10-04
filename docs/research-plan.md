@@ -31,11 +31,12 @@ At each decision date, a symbol is eligible only when all of the following are k
 - closing price at least $5;
 - trailing 60-session median dollar volume at least $20 million;
 - at least 252 prior valid daily bars;
-- no missing bar at the intended entry or scheduled exit;
 - not already held;
 - not a market/sector context ETF.
 
 Do not select the universe using future liquidity, future price, or full-sample data coverage. Rank and liquidity filters are recalculated independently at every timestamp.
+
+Future bar availability is not an eligibility input because it is unknowable at T. In historical research, a missing exact entry or exit bar makes that sample's target unavailable. In simulation, a missing entry cancels the order and a missing scheduled exit invokes the documented next-valid-open exception with a data-quality flag.
 
 Initial target breadth is roughly 100–300 eligible stocks per day. If the available Alpaca symbol list is based only on currently listed assets, EXP-001 is explicitly a survivorship-biased discovery experiment. It must not be described as institutional-quality historical evidence. A later experiment must add point-in-time membership and delisted securities before any stronger claim.
 

@@ -1,0 +1,56 @@
+experiment_id: EXP-001
+random_seed: 316
+
+data:
+  feed: iex
+  timeframe: 1Day
+  adjustment: all
+  start: 2016-01-01
+  end: 2026-09-30
+  market_data_base_url: https://data.alpaca.markets
+
+universe:
+  minimum_price: 5.0
+  median_dollar_volume_window: 60
+  minimum_median_dollar_volume: 20000000.0
+  minimum_history_sessions: 252
+  context_symbols:
+    - SPY
+    - QQQ
+    - IWM
+    - XLK
+    - XLC
+    - XLY
+    - XLF
+    - XLE
+    - XLV
+    - XLI
+    - XLP
+    - XLU
+    - XLRE
+    - XLB
+
+target:
+  entry_session_offset: 1
+  holding_sessions: 5
+
+costs:
+  commission_per_side: 0.001
+  slippage_per_side: 0.0005
+
+portfolio:
+  starting_capital: 10000.0
+  maximum_open_positions: 3
+  maximum_allocation_per_position: 0.20
+  allow_leverage: false
+  allow_shorting: false
+
+validation:
+  initial_training_end: 2020-12-31
+  walk_forward_years: [2021, 2022, 2023, 2024]
+  execution_tuning_start: 2025-01-01
+  execution_tuning_end: 2025-12-31
+  frozen_test_start: 2026-01-01
+  frozen_test_end: 2026-09-30
+  embargo_sessions: 5
+

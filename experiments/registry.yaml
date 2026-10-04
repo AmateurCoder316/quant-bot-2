@@ -1,0 +1,12 @@
+experiments:
+  EXP-001:
+    status: designed
+    design: docs/research-plan.md
+    config: config/exp-001.yaml
+    trained: false
+    frozen_test_evaluated: false
+    notes:
+      - Daily cross-sectional ranking experiment.
+      - Current-list candidate universe has disclosed survivorship bias.
+      - No training is allowed until raw data and target integrity checks pass.
+
